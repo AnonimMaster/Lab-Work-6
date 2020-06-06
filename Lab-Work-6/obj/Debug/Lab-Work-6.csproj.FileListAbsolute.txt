@@ -1,0 +1,10 @@
+D:\source\repos\Lab-Work-6\Lab-Work-6\bin\Debug\Lab-Work-6.exe.config
+D:\source\repos\Lab-Work-6\Lab-Work-6\bin\Debug\Lab-Work-6.exe
+D:\source\repos\Lab-Work-6\Lab-Work-6\bin\Debug\Lab-Work-6.pdb
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab-Work-6.csprojAssemblyReference.cache
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab_Work_6.Form1.resources
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab_Work_6.Properties.Resources.resources
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab-Work-6.csproj.GenerateResource.cache
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab-Work-6.csproj.CoreCompileInputs.cache
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab-Work-6.exe
+D:\source\repos\Lab-Work-6\Lab-Work-6\obj\Debug\Lab-Work-6.pdb
