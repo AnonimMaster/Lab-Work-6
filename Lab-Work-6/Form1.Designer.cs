@@ -255,9 +255,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(7, 35);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(132, 13);
+            this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Введите новое значение";
+            this.label5.Text = "Введите значение";
             // 
             // groupBox6
             // 
