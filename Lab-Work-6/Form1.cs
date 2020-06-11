@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -43,6 +44,7 @@ namespace Lab_Work_6
 			button9.Enabled = true; // делаем активной кнопку button9
 			button10.Enabled = true; // делаем активной кнопку button10
 			button11.Enabled = true; // делаем активной кнопку button11
+			BtnSave.Enabled = true; // делаем активной кнопку BtnSave
 			listBox1.SelectedIndex = -1; // убираем выделение со всех элементов списка
 			MessageBox.Show("Массив случайных чисел сформирован", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
 			// выводим окно с сообщением 
@@ -138,7 +140,18 @@ namespace Lab_Work_6
 					CountNegativeElements++;
 				}
 			}
-
+			bool repeat = false;
+			foreach (string line in textBox5.Lines)
+			{
+				if (line == "Кол-во отрицательных элементов в массиве:" + CountNegativeElements)
+				{
+					repeat = true;
+					break;
+				}
+					
+			}
+			if(repeat==false)
+				textBox5.Text += "\nКол-во отрицательных элементов в массиве:" + CountNegativeElements;
 			MessageBox.Show("Кол-во отрицательных элементов в массиве:" + CountNegativeElements,"Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
@@ -159,6 +172,17 @@ namespace Lab_Work_6
 					MaxElement = a[i];
 				}
 			}
+			bool repeat = false;
+			foreach (string line in textBox5.Lines)
+			{
+				if (line == "Максимальный элемент:" + MaxElement)
+				{
+					repeat = true;
+					break;
+				}
+			}
+			if (repeat == false)
+				textBox5.Text += "\nМаксимальный элемент:" + MaxElement;
 			MessageBox.Show("Максимальный элемент:" + MaxElement, "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
@@ -178,7 +202,18 @@ namespace Lab_Work_6
 					CountOddElements++;
 				}
 			}
-
+			bool repeat = false;
+			foreach (string line in textBox5.Lines)
+			{
+				if (line == "Кол-во нечётных:" + CountOddElements)
+				{
+					repeat = true;
+					break;
+				}
+					
+			}
+			if (repeat == false)
+				textBox5.Text += "\nКол-во нечётных:" + CountOddElements;
 			MessageBox.Show("Кол-во нечётных:" + CountOddElements, "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
 		}
 
@@ -198,8 +233,48 @@ namespace Lab_Work_6
 					SumElements += a[i];
 				}
 			}
+			bool repeat = false;
+			foreach (string line in textBox5.Lines)
+			{
+				if (line == "Сумма положительных чисел: " + SumElements)
+				{
+					repeat = true;
+					break;
+				}
 
+			}
+			if (repeat == false)
+				textBox5.Text += "\nСумма положительных чисел: " + SumElements;
 			MessageBox.Show("Сумма положительных чисел: " + SumElements, "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+		}
+
+		private void BtnSave_Click(object sender, EventArgs e)
+		{
+			SaveFileDialog sfd = new SaveFileDialog();// Создаем диалоговое окно для открытия файла
+			sfd.Title = "Выберите файл для записи массива";//задаем заголовок диалогового окна
+			sfd.InitialDirectory = @"C:\";// задаем начальный путь для сохранения файла
+										  // Создаем фильтр для отображаемых типов файлов
+			sfd.Filter = "txt file (*.txt)|*.txt|all files (*.*)|*.*";
+
+			// открываем окно для сохранения файла командой sfd.ShowDialog() 
+			//и проверяем, нажата ли кнопка "Сохранить" в этом окне, т.е.достигнут ли результат "ОК"
+			if (sfd.ShowDialog() == DialogResult.OK)
+			{// открываем файл для записи (дозапись исключена)
+				using (StreamWriter sw = new StreamWriter(sfd.FileName))
+				{
+					sw.WriteLine("Исходный массив:");
+					foreach (var item in listBox1.Items)// цикл по всем строкам в textBox2
+					{
+						int x = Convert.ToInt32(item);
+						sw.WriteLine(x);
+					}
+					sw.Write("Ваш массив содержит следующие характеристики:");
+					if (textBox5.Text == "")
+						sw.WriteLine("Пусто...");
+					sw.WriteLine(textBox5.Text);
+					MessageBox.Show("Файл сохранён!", "Сообщение", MessageBoxButtons.OK, MessageBoxIcon.Information);
+				}
+			}
 		}
 	}
 }
